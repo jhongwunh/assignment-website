@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "essay-on-shinylive.html",
+    "href": "essay-on-shinylive.html",
+    "title": "Essay on Shinylive",
+    "section": "",
+    "text": "1 What is Shinylive?\nShinylive is a new way to run Shiny applications entirely in the user’s web browser — without needing an R server or any backend infrastructure.\nIt uses WebAssembly to run R inside the browser. This makes it possible to create fully interactive Shiny apps that can be published as static websites, similar to Quarto.\n\n\n\n2 How Is It Different from Shiny?\n\n\n\n\n\n\n\n\nFeature\nShiny (Traditional)\nShinylive\n\n\n\n\nRequires R Server\n✅ Yes\n❌ No\n\n\nDeployable on GitHub Pages / Quarto Pub\n❌ No\n✅ Yes\n\n\nReal-time interactivity\n✅ Yes\n✅ Yes (in browser)\n\n\nBest for\nDynamic dashboards for internal use\nTeaching, prototyping, simple demos\n\n\n\n\n\n\n3 Pros and Cons\n\n3.0.1 ✅ Pros of Shinylive\n\nNo need to host a server\nEasy to share via GitHub Pages or Quarto Pub\nFully interactive\nFree and fast to deploy\nGreat for teaching or demonstrations\n\n\n\n3.0.2 ⚠️ Cons of Shinylive\n\nSlower performance than server-backed apps\nNot suitable for large datasets or intensive computation\nLimited support for some Shiny features\n\n\n\n\n\n4 Why It’s Useful\nShinylive is a great tool to:\n\nAllow anyone to explore data interactively in a browser\nShare demo apps for teaching and tutorials\nPublish interactive visualizations with minimal setup\n\nThis makes it an excellent option for students, researchers, educators, and developers who want to deliver interactive R experiences without worrying about backend deployment.\n\n\n\n5 Code Deployment\nTo create a Shinylive app, you can use:\nquarto add quarto-ext/shinylive\nThen place your .qmd file under a shiny: format and publish it like any other Quarto website.\n\n\n\n\n\n\nNote\n\n\n\nDue to current technical constraints, this Shiny application cannot be rendered interactively in this static preview. However, the full Shinylive version can be deployed with quarto preview using an appropriate CLI setup."
+  },
+  {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "Home",
+    "section": "2 ",
+    "text": "2 \nHi, I’m Jhong Wun Huang. Currently, a graduate student specializing in digital marketing and data analytics."
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Home",
+    "section": "3 Skills",
+    "text": "3 Skills\n\nData Analysis: R, tidyverse, ggplot2, cluster analysis\nVisualization: Quarto, Tableau\nWeb Publishing: Quarto Pub, GitHub Pages\nMarketing Tools: Google Analytics, SEO Strategy"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Home",
+    "section": "4 Education",
+    "text": "4 Education\n\nM.S. in Digital Marketing — California State Polytechnic University, Pomona (Expected August 2025)\nM.B.A. — National Yunlin University of Science and Technology, Taiwan\nB.B.A. — National Yunlin University of Science and Technology, Taiwan\n\nThis website is created as part of the M10 Quarto Module Assignment. The content and visuals reflect insights from my AO4 project on coffee consumer segmentation."
+  },
+  {
+    "objectID": "essay-on-shiny-apps.html",
+    "href": "essay-on-shiny-apps.html",
+    "title": "Essay on Shiny Apps",
+    "section": "",
+    "text": "1 What is Shiny?\nShiny is an R package that allows users to build interactive web applications using R. It combines R code with a web UI, letting users input values and see reactive outputs without needing to refresh or re-run code manually.\nIt is especially useful for:\n\nDashboards\nData exploration apps\nOnline reports\nTeaching tools\n\n\n\n2 Structure of a Shiny App\nA typical Shiny app includes:\n\nUI – Defines what the user sees and interacts with.\nServer – Contains the logic that makes outputs respond to inputs.\nshinyApp() – Combines the UI and server into a runnable app.\n\n\n\n\n3 Sample Shiny App Code\nHere’s a basic Shiny app that lets users select the number of observations and view a histogram:\n\n\nCode\nlibrary(shiny)\n\nui &lt;- fluidPage(\n  titlePanel(\"Histogram Example\"),\n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"obs\", \"Number of observations:\", min = 10, max = 100, value = 30)\n    ),\n    mainPanel(\n      plotOutput(\"distPlot\")\n    )\n  )\n)\n\nserver &lt;- function(input, output) {\n  output$distPlot &lt;- renderPlot({\n    hist(rnorm(input$obs))\n  })\n}\n\nshinyApp(ui = ui, server = server)\n\n\nShiny applications not supported in static R Markdown documents"
+  }
+]

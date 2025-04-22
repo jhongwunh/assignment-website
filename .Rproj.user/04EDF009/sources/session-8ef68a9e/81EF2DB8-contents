@@ -1,0 +1,67 @@
+---
+title: "Essay on Shinylive"
+format: html
+---
+
+# What is Shinylive?
+
+**Shinylive** is a new way to run Shiny applications entirely in the user's web browser — without needing an R server or any backend infrastructure.
+
+It uses WebAssembly to run R inside the browser. This makes it possible to create fully interactive Shiny apps that can be published as static websites, similar to Quarto.
+
+------------------------------------------------------------------------
+
+# How Is It Different from Shiny?
+
+| Feature | Shiny (Traditional) | Shinylive |
+|------------------|--------------------------|----------------------------|
+| Requires R Server | ✅ Yes | ❌ No |
+| Deployable on GitHub Pages / Quarto Pub | ❌ No | ✅ Yes |
+| Real-time interactivity | ✅ Yes | ✅ Yes (in browser) |
+| Best for | Dynamic dashboards for internal use | Teaching, prototyping, simple demos |
+
+------------------------------------------------------------------------
+
+# Pros and Cons
+
+### ✅ Pros of Shinylive
+
+-   No need to host a server
+-   Easy to share via GitHub Pages or Quarto Pub
+-   Fully interactive
+-   Free and fast to deploy
+-   Great for teaching or demonstrations
+
+### ⚠️ Cons of Shinylive
+
+-   Slower performance than server-backed apps
+-   Not suitable for large datasets or intensive computation
+-   Limited support for some Shiny features
+
+------------------------------------------------------------------------
+
+# Why It’s Useful
+
+Shinylive is a great tool to:
+
+-   Allow anyone to explore data **interactively** in a browser
+-   Share demo apps for teaching and tutorials
+-   Publish interactive visualizations with **minimal setup**
+
+This makes it an excellent option for students, researchers, educators, and developers who want to deliver interactive R experiences without worrying about backend deployment.
+
+------------------------------------------------------------------------
+
+# Code Deployment
+
+To create a Shinylive app, you can use:
+
+``` bash
+quarto add quarto-ext/shinylive
+```
+
+Then place your `.qmd` file under a `shiny:` format and publish it like any other Quarto website.
+
+::: {.callout-note}
+Due to current technical constraints, this Shiny application cannot be rendered interactively in this static preview. However, the full Shinylive version can be deployed with `quarto preview` using an appropriate CLI setup.
+:::

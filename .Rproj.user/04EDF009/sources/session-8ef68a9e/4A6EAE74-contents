@@ -1,0 +1,29 @@
+---
+title: "Home"
+format: html
+---
+
+## About Me
+
+::: {.flex-container style="display: flex; align-items: center; gap: 20px;"}
+## ![](S__22044701.jpg){style="border-radius: 50%; width: 500px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"}
+
+Hi, I'm Jhong Wun Huang. Currently, a graduate student specializing in digital marketing and data analytics.
+:::
+
+## Skills
+
+-   Data Analysis: R, tidyverse, ggplot2, cluster analysis
+-   Visualization: Quarto, Tableau
+-   Web Publishing: Quarto Pub, GitHub Pages
+-   Marketing Tools: Google Analytics, SEO Strategy
+
+## Education
+
+-   **M.S. in Digital Marketing** — California State Polytechnic University, Pomona *(Expected August 2025)*
+
+-   **M.B.A.** — National Yunlin University of Science and Technology, Taiwan
+
+-   **B.B.A.** — National Yunlin University of Science and Technology, Taiwan
+
+*This website is created as part of the M10 Quarto Module Assignment. The content and visuals reflect insights from my AO4 project on coffee consumer segmentation.*

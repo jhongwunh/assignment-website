@@ -1,0 +1,86 @@
+---
+title: "Vehicle Dashboard"
+format:
+  dashboard:
+    orientation: columns
+    sidebar: true
+---
+
+::: callout-note
+This interactive dashboard uses the built-in `mtcars` dataset to showcase Quarto's visual and analytical capabilities. Explore how engine performance affects fuel economy.
+:::
+
+## Performance Explorer {width="65%"}
+
+### 🔧 Horsepower vs MPG (Hover-enabled)
+
+```{r}
+library(ggplot2)
+library(plotly)
+
+p <- ggplot(mtcars, aes(x = hp, y = mpg, text = rownames(mtcars))) +
+  geom_point(color = "#0072B2", size = 3, alpha = 0.8) +
+  labs(title = "Horsepower vs. MPG", x = "Horsepower", y = "Miles Per Gallon") +
+  theme_minimal(base_size = 14)
+
+ggplotly(p, tooltip = c("text", "x", "y"))
+```
+
+### 🧪 MPG by Cylinder Count
+
+```{r}
+ggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +
+  geom_boxplot(alpha = 0.8, outlier.color = "red") +
+  labs(title = "Fuel Efficiency by Cylinder", x = "Cylinders", y = "Miles Per Gallon") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none") +
+  scale_fill_brewer(palette = "Set2")
+```
+
+## Key Stats & Features {width="35%"}
+
+### 📊 Total Vehicles
+
+```{r}
+car_count <- nrow(mtcars)
+```
+
+::: {.valuebox icon="car" color="#e0e0e0" text-color="black"}
+Total Cars: `r car_count`
+:::
+
+
+### 💡 MPG Summary Table
+
+```{r}
+library(gt)
+
+mtcars %>%
+  arrange(desc(mpg)) %>%
+  select(mpg, cyl, hp, wt, am) %>%
+  mutate(am = ifelse(am == 1, "Manual", "Automatic")) %>%
+  head(10) %>%
+  gt() %>%
+  tab_header(title = md("**Top 10 MPG Vehicles**")) %>%
+  fmt_number(columns = everything(), decimals = 1) %>%
+  cols_label(
+    mpg = "MPG",
+    cyl = "Cyl",
+    hp = "HP",
+    wt = "Weight",
+    am = "Transmission")
+```
+
+### 🧠 Did You Know?
+
+::: callout-important
+-   💥 More cylinders generally reduce fuel efficiency.
+-   🏁 Manual transmission often achieves better MPG.
+-   📉 High horsepower vehicles tend to consume more fuel.
+:::
+
+------------------------------------------------------------------------
+
+::: callout-tip
+This dashboard integrates `ggplot2`, `gt`, and `plotly` to offer interactive data exploration. Designed using Quarto's `dashboard` format.
+:::
